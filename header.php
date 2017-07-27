@@ -6,10 +6,10 @@
 <html>
 	<head>
 		<title>To do list</title>
-		<meta charset="utf-8">
-		<link rel="stylesheet" type="text/css" href="css/styles.css">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link rel="stylesheet" type="text/css" href="todo.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-		<script type="script/javascript" src="todo.js"></script>
+		<script type="text/javascript" src="todo.js"></script>
 	</head>
 	<body>
 		<div id="header">
@@ -17,7 +17,7 @@
 			<a href="index.php">Главная</a>
 			<div id="auth_block">
 				<?php
-					if(!isset($_SESSION["email"]) && !isset($_SESSION["password"])){
+					if (!isset($_SESSION["email"]) && !isset($_SESSION["password"])){
 				?>
 						<div id="link_register">
 							<a href="form_register.php">Регистрация</a>
@@ -26,7 +26,7 @@
 							<a href="form_auth.php">Авторизация</a>
 						</div>
 					<?php
-					}else{
+					} else {
 					?>
 						<div id="link_logout">
 							<a href="logout.php">Выход</a>
@@ -39,6 +39,5 @@
 			</div>
 			<div class="clear"></div>
 		</div>
-	</body>
-</html>
+
 	

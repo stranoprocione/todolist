@@ -4,14 +4,14 @@
 
 	<div class="block_for_messages">
 		<?php
-		if(isset($_SESSION["error_messages"]) && !empty($_SESSION["error_messages"])){
+		if (isset ($_SESSION["error_messages"]) && !empty ($_SESSION["error_messages"])){
 			echo $_SESSION["error_messages"];
-			unset($_SESSION["error_messages"]);
+			unset ($_SESSION["error_messages"]);
 		}
  
-		if(isset($_SESSION["success_messages"]) && !empty($_SESSION["success_messages"])){
+		if (isset ($_SESSION["success_messages"]) && !empty ($_SESSION["success_messages"])){
 			echo $_SESSION["success_messages"];
-			unset($_SESSION["success_messages"]);
+			unset ($_SESSION["success_messages"]);
 		}
 		?>
 	</div>

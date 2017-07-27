@@ -2,6 +2,6 @@
 
 ini_set('display_errors', 'On');
 
-include 'header.php';
+include 'lists.php';
 
 ?>
