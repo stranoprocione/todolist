@@ -30,3 +30,16 @@ ol {
 	margin:0
 }
 
+#save_button {
+    display: inline-block;
+    height:20px;
+	width:170px;
+	background-color:#cc0000;
+	font-family:arial;
+	font-weight:bold;
+	color:#ffffff;
+	border-radius: 5px;
+	text-align:center;
+	margin-top:2px;
+}
+

@@ -6,19 +6,24 @@ $(document).ready(function() {
     
 	var toSave = 0;
 	var check_count = 0;
+    var toAdd = '';
+    var item_id = 0;
+    var item_values = [];
+    var list_name = '';
     function add_item() {
-        var list_name = "default";
-        var toAdd = $('input[name=checkListItem]').val();
-        $('.list').append('<div class="check"><input type="checkbox"/> ' + toAdd + '<br></div>');
+        toAdd = $('input[name=checkListItem]').val();
+        item_values[item_id] = toAdd;
+        item_id++;
+        $('.list').append('<div class="check" id="' + item_id + '"><input type="checkbox"/> ' + toAdd + '<br></div>');
         $('#input').val('');
         check_count++;
         if (toSave == 0) {
             $('.save').append('<input type="button" name="save" value="Save todo list" id="save_button">');
             toSave = 1;
+            $('.save').prepend('<input type="text" name="list_name" placeholder="enter list name" class="list_name"/>');
+            
         }
-        $.post('lists.php', {list_name: list_name, content: toAdd}, function(data){
-            alert(data.status);
-        }, "json");
+        
     }
 	$('#button').click(function() {
 		add_item();
@@ -28,8 +33,18 @@ $(document).ready(function() {
             add_item();
         };
     }); 
-    
+    $(document).on('click', '#save_button', function() {
+        if (toSave == 1) {
+            list_name = $('input[name=list_name]').val();
+            $.post('lists.php', {list_name: list_name, 'content[]': item_values}, function(data){
+                alert(data.status);
+            }, "json");
+            
+            
+        }
+    });
     $(document).on('click', '.check', function() {
+        delete item_values[$(this).prop("id")];
         $(this).toggle(500);
         setTimeout(function() {
 			$(this).remove(); 
@@ -41,10 +56,7 @@ $(document).ready(function() {
 		}
     });
     
-    
-	
-    
-    "use strict";
+	"use strict";
      var pattern = /^[a-z0-9][a-z0-9\._-]*[a-z0-9]*@([a-z0-9]+([a-z0-9-]*[a-z0-9]+)*\.)+[a-z]+$/i;
      var mail = $('input[name=email]');
      mail.blur(function() {

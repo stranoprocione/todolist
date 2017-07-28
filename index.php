@@ -9,7 +9,7 @@
 				unset ($_SESSION["success_messages"]);
 			}
 		?>
-		<h2>To Do List</h2>
+		
 		<form name="checkListForm" onsubmit="return false">
 			<input type="text" name="checkListItem" id="input"/>
 			<input type="button" name="add" value="Add!" id="button"/>
